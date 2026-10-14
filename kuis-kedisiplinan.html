@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuis Kedisiplinan Kelas XI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6FAF9; --surface:#FFFFFF; --ink:#16282B; --muted:#4F6568; --line:#CFE0DD;
+  --brand:#0F766E; --brand-ink:#FFFFFF; --deep:#0F4C4A;
+  --ok:#2F7D32; --ok-bg:#E4F3E4; --bad:#C23A52; --bad-bg:#FBE7EB; --amber:#F59E0B;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E1B1D; --surface:#152629; --ink:#E7F2F0; --muted:#A3BBB8; --line:#2A4448;
+    --brand:#2DB5A8; --brand-ink:#082220; --deep:#2DB5A8;
+    --ok:#7ED67F; --ok-bg:#1B3A1E; --bad:#FF8DA1; --bad-bg:#42202A;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E1B1D; --surface:#152629; --ink:#E7F2F0; --muted:#A3BBB8; --line:#2A4448;
+  --brand:#2DB5A8; --brand-ink:#082220; --deep:#2DB5A8;
+  --ok:#7ED67F; --ok-bg:#1B3A1E; --bad:#FF8DA1; --bad-bg:#42202A;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:18px;line-height:1.55}
+h1,h2,h3{font-family:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;line-height:1.15;margin:0}
+main{max-width:680px;margin:0 auto;padding:28px 20px 56px}
+.brand{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;color:var(--deep);font-size:16px;margin-bottom:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+h1{font-size:clamp(34px,8vw,48px);font-weight:800;color:var(--deep);margin-bottom:14px}
+p{margin:0 0 16px;max-width:60ch}
+label{display:block;font-weight:700;margin-bottom:6px}
+input[type=text]{width:100%;font:inherit;padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);margin-bottom:20px}
+input[type=text]:focus{outline:3px solid var(--amber);outline-offset:1px;border-color:var(--brand)}
+.btn{font:inherit;font-weight:700;background:var(--brand);color:var(--brand-ink);border:0;border-radius:12px;padding:13px 22px;cursor:pointer;min-height:48px}
+.btn.ghost{background:transparent;color:var(--deep);border:2px solid var(--brand)}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.strip{display:grid;grid-template-columns:repeat(15,1fr);gap:4px;margin-bottom:8px}
+.strip i{height:10px;border-radius:5px;background:var(--line);transition:background .25s}
+.strip i.now{background:var(--amber)}
+.strip i.ok{background:var(--ok)}
+.strip i.bad{background:var(--bad)}
+.count{color:var(--muted);font-size:15px;margin-bottom:18px}
+h2{font-size:clamp(22px,5vw,28px);font-weight:600;margin-bottom:20px}
+.opts{display:grid;gap:10px;margin-bottom:18px}
+.opt{font:inherit;text-align:left;display:flex;gap:14px;align-items:flex-start;width:100%;background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:13px 14px;cursor:pointer;min-height:56px}
+.opt:hover:not(:disabled){border-color:var(--brand)}
+.opt b{flex:0 0 32px;height:32px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-size:16px}
+.opt:disabled{cursor:default}
+.opt.ok{background:var(--ok-bg);border-color:var(--ok)}
+.opt.bad{background:var(--bad-bg);border-color:var(--bad)}
+.opt.dim{opacity:.6}
+.fb{border-radius:14px;padding:16px 18px;margin-bottom:18px}
+.fb.ok{background:var(--ok-bg)}.fb.bad{background:var(--bad-bg)}
+.fb strong{display:block;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:20px;margin-bottom:4px}
+.fb.ok strong{color:var(--ok)}.fb.bad strong{color:var(--bad)}
+.fb p{margin:0}
+.score{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:clamp(64px,18vw,96px);color:var(--deep);line-height:1}
+.score small{font-size:.4em;color:var(--muted);font-weight:600}
+.rev{border-top:1px solid var(--line);padding:16px 0}
+.rev h3{font-size:18px;font-weight:600;margin-bottom:6px}
+.rev p{margin:0 0 4px;font-size:16px}
+.rev .no{color:var(--bad)}.rev .yes{color:var(--ok)}
+.hero{display:flex;gap:16px;align-items:center;background:var(--bg);border:2px solid var(--amber);border-radius:16px;padding:16px;margin:16px 0}
+.hero h2{font-size:clamp(20px,5vw,24px)}
+.avatar{flex:0 0 72px;height:72px;border-radius:50%;background:var(--surface);border:2px solid var(--line);display:grid;place-items:center;font-size:38px}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.hide{display:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">Kuis Kedisiplinan Kelas XI</div>
+
+  <section id="start" class="card">
+    <h1>Seberapa disiplin pilihanmu?</h1>
+    <p>Ada 15 soal tentang situasi nyata di sekolah, dan di akhir kamu akan tahu kamu mirip dengan tokoh yang mana. Pilih jawaban, lalu langsung baca penjelasannya.</p>
+    <label for="nama">Namamu (boleh dikosongkan)</label>
+    <input id="nama" type="text" maxlength="40" autocomplete="off">
+    <button class="btn" id="mulai">Mulai kuis</button>
+  </section>
+
+  <section id="quiz" class="card hide" aria-live="polite">
+    <div class="strip" id="strip"></div>
+    <div class="count" id="count"></div>
+    <h2 id="q"></h2>
+    <div class="opts" id="opts"></div>
+    <div id="fb"></div>
+    <button class="btn hide" id="next"></button>
+  </section>
+
+  <section id="end" class="card hide">
+    <p id="who" style="margin-bottom:4px;color:var(--muted)"></p>
+    <div class="score" id="score"></div>
+    <div class="hero"><div class="avatar" id="avatar" aria-hidden="true"></div><div><h2 id="title" style="margin:0 0 6px"></h2><p id="tdesc" style="margin:0"></p></div></div>
+    <p id="msg"></p>
+    <div id="review"></div>
+    <div class="row"><button class="btn" id="ulang">Ulangi kuis</button></div>
+  </section>
+</main>
+
+<script>
+const Q=[
+{q:"Manakah yang paling tepat menggambarkan disiplin?",o:["Patuh hanya ketika diawasi guru","Menaati aturan dan melakukan hal benar atas kesadaran sendiri","Menurut karena takut hukuman"],c:1,
+ e:"Disiplin sejati berasal dari kesadaran diri, jadi tetap dijalankan walaupun tidak ada yang mengawasi."},
+{q:"Kamu terlambat 10 menit karena ketiduran. Apa yang sebaiknya kamu lakukan?",o:["Mengarang alasan yang masuk akal","Menyelinap masuk lewat pintu belakang","Jujur melapor ke guru piket dan berjanji memperbaiki"],c:2,
+ e:"Melapor dengan jujur menunjukkan tanggung jawab. Berbohong atau menyelinap justru menambah masalah baru."},
+{q:"Temanmu mengirim jawaban PR ke grup kelas. Sikap terbaikmu?",o:["Menyalin, yang penting tugas selesai","Mengerjakan sendiri, dan mengajak diskusi bila perlu","Menyalin separuhnya saja"],c:1,
+ e:"Mengerjakan sendiri melatih pemahaman dan kejujuran. Berdiskusi boleh, menyalin tidak."},
+{q:"Guru sedang menjelaskan, lalu notifikasi HP-mu berbunyi. Apa tindakan yang tepat?",o:["Membalas cepat sambil menunduk","Menunjukkan pesan itu ke teman sebangku","Membiarkannya, dan izin ke guru bila pesannya mendesak"],c:2,
+ e:"Fokus pada pelajaran itu menghargai guru dan teman. Bila benar-benar mendesak, izin dulu."},
+{q:"Apa dampak paling nyata dari kebiasaan menunda tugas?",o:["Tugas selalu selesai lebih bagus","Tidak ada dampak, asalkan akhirnya selesai","Tugas menumpuk, nilai turun, dan kepercayaan guru berkurang"],c:2,
+ e:"Menunda membuat tugas menumpuk dan hasilnya terburu-buru, sehingga nilai dan kepercayaan ikut terdampak."},
+{q:"Tiga temanmu mengajak bolos jam terakhir. Apa yang kamu lakukan?",o:["Ikut, karena takut dijauhi","Menolak dengan sopan dan mengingatkan risikonya","Ikut sekali ini saja"],c:1,
+ e:"Berani menolak ajakan yang salah adalah bentuk disiplin diri. Teman yang baik akan menghargai pilihanmu."},
+{q:"Tata tertib sekolah dibuat terutama untuk...",o:["Membatasi kebebasan siswa","Memudahkan guru memberi hukuman","Menciptakan lingkungan belajar yang aman dan tertib bagi semua"],c:2,
+ e:"Aturan ada agar semua orang bisa belajar dengan nyaman dan aman, bukan untuk menghukum."},
+{q:"Kamu melihat temanmu membuang sampah sembarangan. Sikap paling bijak?",o:["Mengingatkan dengan sopan dan memberi contoh yang benar","Diam saja agar tidak ribut","Mengunggahnya di grup supaya malu"],c:0,
+ e:"Menegur dengan sopan dan memberi contoh membangun budaya baik tanpa mempermalukan siapa pun."},
+{q:"Disiplin yang paling kuat tumbuh dari...",o:["Kesadaran diri akan tanggung jawab","Hukuman yang berat","Pengawasan yang ketat"],c:0,
+ e:"Hukuman dan pengawasan hanya bekerja saat ada yang melihat. Kesadaran diri bekerja setiap saat."},
+{q:"Komitmen disiplin yang paling konkret dan bisa diukur adalah...",o:["Aku akan menjadi siswa yang lebih baik","Aku akan berangkat 15 menit lebih awal setiap hari sekolah","Aku akan berusaha disiplin"],c:1,
+ e:"Komitmen yang jelas (apa, kapan, seberapa sering) lebih mudah dijalankan dan diperiksa."},
+{q:"Kamu lupa membawa buku tugas yang harus dikumpulkan hari ini. Apa yang sebaiknya kamu lakukan?",o:["Jujur menyampaikan ke guru dan menawarkan mengumpulkannya secepat mungkin","Mengaku bahwa tugasnya sudah dikumpulkan","Menyalahkan teman sebangku"],c:0,
+ e:"Jujur sambil menawarkan solusi menunjukkan tanggung jawab. Berbohong justru merusak kepercayaan."},
+{q:"Jam pelajaran kosong karena guru berhalangan hadir. Sikap yang menunjukkan disiplin?",o:["Bermain di luar kelas","Tetap di kelas dan belajar atau mengerjakan tugas dengan tertib","Tidur sampai bel berbunyi"],c:1,
+ e:"Disiplin diuji saat tidak ada yang mengawasi. Memanfaatkan jam kosong dengan tertib melatih tanggung jawab."},
+{q:"Kamu ketua kelas dan melihat teman dekatmu melanggar tata tertib. Apa yang kamu lakukan?",o:["Membiarkannya karena dia teman dekat","Melaporkannya dengan nada marah","Menegur dengan adil seperti kepada siapa pun dan mengajaknya memperbaiki"],c:2,
+ e:"Adil kepada semua orang adalah bagian dari disiplin dan kepemimpinan. Menegur dengan baik membuka jalan untuk berubah."},
+{q:"Ujian tinggal dua hari, tetapi kamu belum belajar sama sekali. Langkah paling disiplin?",o:["Membuat jadwal belajar per hari dan menaatinya","Begadang semalam sebelum ujian","Berharap soalnya mudah"],c:0,
+ e:"Jadwal yang jelas membagi materi menjadi bagian kecil. Belajar mendadak dan berharap hasil baik adalah kebiasaan yang rapuh."},
+{q:"Mengapa disiplin penting bagi masa depanmu?",o:["Supaya tidak dimarahi guru","Karena kebiasaan baik di sekolah akan terbawa ke dunia kuliah dan kerja","Supaya guru senang"],c:1,
+ e:"Disiplin adalah kebiasaan yang kamu bawa seumur hidup, dan manfaatnya paling besar untuk dirimu sendiri."}
+];
+const $=id=>document.getElementById(id);
+const L="ABC";
+let i=0,ans=[],nama="";
+
+function show(id){["start","quiz","end"].forEach(s=>$(s).classList.toggle("hide",s!==id));window.scrollTo(0,0)}
+function strip(){
+  $("strip").innerHTML=Q.map((_,k)=>{
+    let c=k<ans.length?(ans[k]===Q[k].c?"ok":"bad"):(k===i?"now":"");
+    return `<i class="${c}"></i>`}).join("");
+}
+function render(){
+  const q=Q[i];
+  strip();
+  $("count").textContent="Soal "+(i+1)+" dari "+Q.length;
+  $("q").textContent=q.q;
+  $("fb").innerHTML="";
+  $("next").classList.add("hide");
+  $("opts").innerHTML="";
+  q.o.forEach((t,j)=>{
+    const b=document.createElement("button");
+    b.className="opt";b.type="button";
+    b.innerHTML=`<b>${L[j]}</b><span></span>`;
+    b.lastChild.textContent=t;
+    b.onclick=()=>pick(j);
+    $("opts").appendChild(b);
+  });
+}
+function pick(j){
+  const q=Q[i];
+  ans[i]=j;
+  const ok=j===q.c;
+  [...$("opts").children].forEach((b,k)=>{
+    b.disabled=true;
+    if(k===q.c)b.classList.add("ok");
+    else if(k===j)b.classList.add("bad");
+    else b.classList.add("dim");
+  });
+  strip();
+  $("fb").innerHTML=`<div class="fb ${ok?"ok":"bad"}"><strong>${ok?"Tepat!":"Belum tepat"}</strong><p></p></div>`;
+  $("fb").querySelector("p").textContent=(ok?"":"Jawaban yang benar: "+L[q.c]+". ")+q.e;
+  const n=$("next");
+  n.textContent=i<Q.length-1?"Soal berikutnya":"Lihat hasil";
+  n.classList.remove("hide");n.focus();
+}
+function finish(){
+  const s=ans.filter((a,k)=>a===Q[k].c).length;
+  $("who").textContent=nama?("Hasil untuk "+nama):"Hasil kuismu";
+  $("score").innerHTML=s+"<small>/"+Q.length+"</small>";
+  const t=s>=13?["🏅","Kapten Teladan","Pemimpin yang menjadi contoh bagi seluruh kelas: tepat waktu, jujur, dan selalu bertanggung jawab.","Luar biasa. Pilihanmu hampir selalu tepat. Ajak temanmu ikut menjaga budaya disiplin di kelas."]
+    :s>=10?["⏰","Arka si Penjaga Waktu","Selalu datang tepat waktu dan menyelesaikan tugas sebelum tenggat, tanpa perlu diingatkan.","Hampir sempurna. Baca lagi penjelasan soal yang terlewat, lalu terapkan di sekolah."]
+    :s>=7?["🌱","Laras si Pejuang Tekun","Tidak menyerah dan terus berlatih sampai kebiasaan baik tertanam. Kamu sedang tumbuh dengan baik.","Dasarnya sudah ada. Baca penjelasan di bawah, lalu coba lagi untuk memperbaiki skor."]
+    :["🧭","Bima si Penjelajah Baru","Baru memulai perjalanan disiplin dan penuh rasa ingin tahu. Setiap langkah kecil tetap berarti.","Tidak apa-apa. Baca penjelasan di bawah, lalu ulangi kuis dan lihat perubahannya."];
+  $("avatar").textContent=t[0];$("title").textContent="Kamu mirip dengan "+t[1];$("tdesc").textContent=t[2];$("msg").textContent=t[3];
+  const wrong=Q.map((q,k)=>({q,k})).filter(x=>ans[x.k]!==x.q.c);
+  const r=$("review");r.innerHTML="";
+  if(wrong.length){
+    const h=document.createElement("h3");h.textContent="Soal yang perlu kamu tinjau";h.style.margin="18px 0 4px";r.appendChild(h);
+    wrong.forEach(({q,k})=>{
+      const d=document.createElement("div");d.className="rev";
+      d.innerHTML="<h3></h3><p class='no'></p><p class='yes'></p><p></p>";
+      const [a,b,c,e]=d.children;
+      a.textContent=(k+1)+". "+q.q;
+      b.textContent="Jawabanmu: "+q.o[ans[k]];
+      c.textContent="Jawaban benar: "+q.o[q.c];
+      e.textContent=q.e;
+      r.appendChild(d);
+    });
+  }
+  show("end");
+}
+$("mulai").onclick=()=>{nama=$("nama").value.trim();i=0;ans=[];show("quiz");render()};
+$("next").onclick=()=>{if(i<Q.length-1){i++;render()}else finish()};
+$("ulang").onclick=()=>{i=0;ans=[];show("start")};
+</script>
+</body>
+</html>
