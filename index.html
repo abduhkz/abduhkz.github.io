@@ -3,211 +3,138 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>WebInstan — Website jadi dalam 24 jam</title>
-<meta name="description" content="Pesan website usaha Anda lewat WhatsApp. Siap tayang dalam 24 jam, tampil rapi di HP dan komputer.">
-<meta property="og:title" content="WebInstan — Website jadi dalam 24 jam">
-<meta property="og:description" content="Kirim nama usaha, foto, dan nomor WhatsApp. Website siap pakai dalam 24 jam.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#2A3BFF">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
+<title>Kopra Timur Nusantara – Ekspor Kopra dari Makassar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
-:root{--bg:#F6F8FC;--surface:#fff;--ink:#14213D;--muted:#53607A;--line:#D9DFEC;--brand:#2A3BFF;--brand-ink:#fff;--sun:#FFD23F;--mint:#C6F2E1;
+:root{--bg:#f4f5f0;--surface:#e7eae0;--ink:#14262a;--muted:#4d5e5c;--husk:#7a5b3a;--lagoon:#1f6f6b;--on-lagoon:#fff;--line:#c9cfc2;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1426;--surface:#171F38;--ink:#EEF1FA;--muted:#A3AEC9;--line:#2A3556;--brand:#7B88FF;--brand-ink:#0E1426;--mint:#1F4D44}}
-:root[data-theme="dark"]{--bg:#0E1426;--surface:#171F38;--ink:#EEF1FA;--muted:#A3AEC9;--line:#2A3556;--brand:#7B88FF;--brand-ink:#0E1426;--mint:#1F4D44}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 Figtree,system-ui,sans-serif}
-h1,h2,h3{font-family:"Bricolage Grotesque",Georgia,sans-serif;line-height:1.08;margin:0;letter-spacing:-.02em}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{font:800 1.3rem "Bricolage Grotesque",sans-serif;text-decoration:none}
-.logo b{background:var(--sun);color:#14213D;padding:0 .3em;border-radius:6px;margin-left:2px}
-.btn{display:inline-block;background:var(--brand);color:var(--brand-ink);font-weight:600;text-decoration:none;padding:.8em 1.3em;border-radius:10px;border:0;cursor:pointer;font-size:1rem}
-.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
-.btn:hover{filter:brightness(1.08)}
-/* hero */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:36px 0 72px}
-.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800}
-.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34ch;margin:20px 0 28px}
-.cta-row{display:flex;gap:12px;flex-wrap:wrap}
-.demo{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px}
-.demo label{font-weight:600;font-size:.95rem;display:block;margin-bottom:6px}
-.demo input{width:100%;font:inherit;padding:.7em .9em;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}
-.chip{font:inherit;font-size:.9rem;padding:.4em .9em;border-radius:99px;border:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.browser{border:2px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;color:#14213D}
-.bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#E8ECF6;font-size:.8rem;color:#53607A}
-.bar i{width:9px;height:9px;border-radius:50%;background:#B8C0D6}
-.bar span{margin-left:8px;background:#fff;border-radius:6px;padding:1px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.site{padding:22px 18px 24px;transition:background .3s}
-.site h3{font-size:1.6rem;overflow-wrap:anywhere}
-.site p{margin:6px 0 14px;font-size:.95rem}
-.site .fake{display:inline-block;padding:.45em 1em;border-radius:8px;font-weight:600;font-size:.9rem;color:#fff}
-.demo small{display:block;margin-top:10px;color:var(--muted);font-size:.85rem}
-/* sections */
-section{padding:64px 0;border-top:1px solid var(--line)}
-section h2{font-size:clamp(1.8rem,4vw,2.7rem);max-width:20ch}
-.sub{color:var(--muted);max-width:52ch;margin:12px 0 0}
-.steps{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:s}
-.steps li{padding:0 24px 0 0;border-left:4px solid var(--brand);padding-left:18px;counter-increment:s}
-.steps li::before{content:"Langkah " counter(s);font-weight:600;font-size:.9rem;color:var(--brand)}
-.steps h3{font-size:1.35rem;margin:4px 0 6px}
-.steps p{margin:0;color:var(--muted);font-size:.98rem}
-.inc{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 40px;margin-top:32px;padding:0;list-style:none}
-.inc li{padding-left:30px;position:relative}
-.inc li::before{content:"";position:absolute;left:0;top:.35em;width:18px;height:18px;border-radius:50%;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l3 3 5-6' fill='none' stroke='%232A3BFF' stroke-width='2'/%3E%3C/svg%3E")}
-.price{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;align-items:stretch}
-.plan{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column}
-.plan.hot{border-color:var(--brand);box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 18%,transparent)}
-.plan h3{font-size:1.3rem}
-.plan .rp{font:800 2.1rem "Bricolage Grotesque",sans-serif;margin:10px 0 2px}
-.plan .rp small{font:500 .9rem Figtree,sans-serif;color:var(--muted)}
-.plan ul{padding-left:1.1em;margin:14px 0 22px;color:var(--muted);flex:1}
-.tag{align-self:flex-start;background:var(--sun);color:#14213D;font-weight:600;font-size:.8rem;padding:.15em .7em;border-radius:99px;margin-bottom:10px}
-details{border-bottom:1px solid var(--line);padding:16px 0}
-summary{cursor:pointer;font-weight:600;font-size:1.08rem}
-details p{margin:10px 0 0;color:var(--muted);max-width:62ch}
-.final{background:var(--brand);color:var(--brand-ink);border-radius:22px;padding:48px 28px;text-align:center;margin:20px 0 56px}
-.final h2{margin:0 auto 12px;max-width:18ch}
-.final .btn{background:var(--sun);color:#14213D;margin-top:18px}
-footer{padding:0 0 40px;color:var(--muted);font-size:.9rem}
-@media (max-width:820px){.hero{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:24px}.price{grid-template-columns:1fr}.inc{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.site{transition:none}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a1c;--surface:#16282a;--ink:#eef1ea;--muted:#a3b3b0;--husk:#c9a67a;--lagoon:#5cbab4;--on-lagoon:#0e1a1c;--line:#2a3f41}}
+:root[data-theme="dark"]{--bg:#0e1a1c;--surface:#16282a;--ink:#eef1ea;--muted:#a3b3b0;--husk:#c9a67a;--lagoon:#5cbab4;--on-lagoon:#0e1a1c;--line:#2a3f41}
+html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:light dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif;line-height:1.1;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+nav b{font:800 19px "Bricolage Grotesque",sans-serif}
+nav a{color:var(--ink);text-decoration:none;font-weight:500;margin-left:20px}
+nav a:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--lagoon);outline-offset:3px}
+.hero{padding:56px 0 64px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:800;letter-spacing:-.02em}
+.hero p{color:var(--muted);max-width:46ch;margin:20px 0 28px}
+.btn{display:inline-block;background:var(--lagoon);color:var(--on-lagoon);padding:14px 24px;border-radius:6px;font:600 16px "Instrument Sans",sans-serif;text-decoration:none;border:0;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink);margin-left:10px}
+.spec{background:var(--surface);border-left:6px solid var(--husk);padding:26px 26px 18px}
+.spec h2{font-size:22px;margin-bottom:4px}
+.spec small{color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+td,th{text-align:left;padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
+th{font-weight:500;color:var(--muted)}
+td:last-child{text-align:right;font-weight:600}
+section{padding:60px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(28px,4vw,40px);margin-bottom:12px}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 32px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grid h3{font-size:20px;margin-bottom:6px}
+.grid p{margin:0;color:var(--muted);font-size:16px}
+ol{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+ol li{counter-increment:s;border-top:4px solid var(--husk);padding-top:12px;font-size:15px;color:var(--muted)}
+ol li b{display:block;color:var(--ink);font:700 18px "Bricolage Grotesque",sans-serif}
+ol li::before{content:counter(s);display:block;font:800 14px "Bricolage Grotesque",sans-serif;color:var(--husk)}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact{background:var(--surface)}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:15px}
+input,select,textarea{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+footer{padding:28px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+@media (max-width:860px){.hero,.terms{grid-template-columns:1fr}.grid{grid-template-columns:1fr}ol{grid-template-columns:1fr 1fr}.btn.alt{margin:10px 0 0}nav a.hide{display:none}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header>
-  <a class="logo" href="#">Web<b>Instan</b></a>
-  <a class="btn ghost" href="#paket">Lihat paket</a>
+<nav><b>Kopra Timur Nusantara</b><div><a class="hide" href="#mutu">Mutu</a><a class="hide" href="#proses">Proses</a><a class="hide" href="#syarat">Syarat</a><a href="#kontak">Hubungi</a></div></nav>
+<header class="hero">
+<div>
+<h1>Kopra kering dari Sulawesi, dikirim langsung dari Makassar.</h1>
+<p>Kami membeli kopra dari petani kelapa di Sulawesi, menyortir dan menguji kadar airnya, lalu mengirimkannya dalam kontainer ke pabrik minyak kelapa dan pembeli di luar negeri.</p>
+<a class="btn" href="#kontak">Minta penawaran</a><a class="btn alt" href="#mutu">Lihat spesifikasi</a>
+</div>
+<aside class="spec" id="mutu">
+<h2>Spesifikasi kopra</h2>
+<small>Contoh angka. Sesuaikan dengan kontrak dan hasil uji lab.</small>
+<table>
+<tr><th>Kadar air</th><td>maks. 6%</td></tr>
+<tr><th>Asam lemak bebas (FFA)</th><td>maks. 5%</td></tr>
+<tr><th>Kadar minyak</th><td>min. 63%</td></tr>
+<tr><th>Aflatoksin</th><td>diuji per lot</td></tr>
+<tr><th>Bentuk</th><td>potongan, kering asap/matahari</td></tr>
+<tr><th>Pelabuhan muat</th><td>Makassar</td></tr>
+</table>
+</aside>
 </header>
-
-<div class="hero">
-  <div>
-    <h1>Usaha Anda online hari ini. Bukan bulan depan.</h1>
-    <p class="lead">Kirim nama usaha, foto, dan nomor WhatsApp. Website siap pakai kami serahkan dalam 24 jam.</p>
-    <div class="cta-row">
-      <a class="btn" href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20pesan%20website%20instan" target="_blank" rel="noopener">Pesan lewat WhatsApp</a>
-      <a class="btn ghost" href="#cara">Lihat caranya</a>
-    </div>
-  </div>
-
-  <div class="demo" aria-label="Contoh tampilan website">
-    <label for="nama">Coba ketik nama usaha Anda</label>
-    <input id="nama" type="text" maxlength="40" placeholder="mis. Kopi Daeng Ical" autocomplete="off">
-    <div class="chips" role="group" aria-label="Jenis usaha">
-      <button class="chip" aria-pressed="true" data-t="0">Kuliner</button>
-      <button class="chip" aria-pressed="false" data-t="1">Jasa</button>
-      <button class="chip" aria-pressed="false" data-t="2">Toko</button>
-      <button class="chip" aria-pressed="false" data-t="3">Sekolah</button>
-    </div>
-    <div class="browser">
-      <div class="bar"><i></i><i></i><i></i><span id="url">kopidaengical.webinstan.id</span></div>
-      <div class="site" id="site">
-        <h3 id="pn">Nama Usaha Anda</h3>
-        <p id="pt">Pesan antar, jam buka, dan menu lengkap.</p>
-        <span class="fake" id="pb">Pesan via WhatsApp</span>
-      </div>
-    </div>
-    <small>Ini hanya contoh tampilan. Desain final disesuaikan dengan usaha Anda.</small>
-  </div>
 </div>
 
-<section id="cara">
-  <h2>Tiga langkah, tanpa urusan teknis</h2>
-  <ol class="steps">
-    <li><h3>Kirim bahan</h3><p>Nama usaha, logo, beberapa foto, dan info kontak lewat WhatsApp.</p></li>
-    <li><h3>Kami buatkan</h3><p>Kami susun halaman dari template yang sudah teruji, lalu kirim tautan untuk Anda cek.</p></li>
-    <li><h3>Tayang</h3><p>Setelah Anda setuju, website langsung online dan bisa dibagikan ke pelanggan.</p></li>
-  </ol>
-</section>
-
-<section>
-  <h2>Yang Anda dapat</h2>
-  <ul class="inc">
-    <li>Tampilan rapi di HP maupun komputer</li>
-    <li>Tombol WhatsApp yang langsung terhubung</li>
-    <li>Peta lokasi dan jam operasional</li>
-    <li>Galeri foto produk atau layanan</li>
-    <li>Alamat web sendiri (subdomain gratis)</li>
-    <li>Revisi teks dan foto sesuai paket</li>
-  </ul>
-</section>
-
-<section id="paket">
-  <h2>Pilih paket yang pas</h2>
-  <p class="sub">Harga sudah termasuk pembuatan. Tanpa biaya tersembunyi.</p>
-  <div class="price">
-    <div class="plan">
-      <h3>Kilat</h3>
-      <div class="rp">Rp 299rb <small>sekali bayar</small></div>
-      <ul><li>1 halaman</li><li>Subdomain gratis</li><li>1x revisi</li></ul>
-      <a class="btn ghost" href="https://wa.me/6281234567890?text=Saya%20pilih%20paket%20Kilat" target="_blank" rel="noopener">Pilih Kilat</a>
-    </div>
-    <div class="plan hot">
-      <span class="tag">Paling banyak dipilih</span>
-      <h3>Standar</h3>
-      <div class="rp">Rp 699rb <small>sekali bayar</small></div>
-      <ul><li>Hingga 5 halaman</li><li>Domain .com 1 tahun</li><li>3x revisi</li></ul>
-      <a class="btn" href="https://wa.me/6281234567890?text=Saya%20pilih%20paket%20Standar" target="_blank" rel="noopener">Pilih Standar</a>
-    </div>
-    <div class="plan">
-      <h3>Lengkap</h3>
-      <div class="rp">Rp 1,5jt <small>sekali bayar</small></div>
-      <ul><li>Halaman sesuai kebutuhan</li><li>Domain + email bisnis</li><li>Revisi tanpa batas selama 30 hari</li></ul>
-      <a class="btn ghost" href="https://wa.me/6281234567890?text=Saya%20pilih%20paket%20Lengkap" target="_blank" rel="noopener">Pilih Lengkap</a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Pertanyaan yang sering muncul</h2>
-  <div style="margin-top:24px">
-    <details><summary>Benarkah selesai dalam 24 jam?</summary><p>Ya, untuk paket Kilat dan Standar selama bahan (teks dan foto) sudah lengkap. Paket Lengkap bisa lebih lama tergantung jumlah halaman.</p></details>
-    <details><summary>Saya tidak punya foto atau logo. Bagaimana?</summary><p>Foto dari HP sudah cukup. Untuk logo sederhana, kami bisa bantu buatkan dengan biaya terpisah.</p></details>
-    <details><summary>Apakah ada biaya bulanan?</summary><p>Pembuatan dibayar sekali. Biaya yang berulang hanya perpanjangan domain tahunan setelah masa gratis berakhir.</p></details>
-    <details><summary>Bisakah saya ubah isi website sendiri nanti?</summary><p>Anda bisa kirim perubahan lewat WhatsApp kapan saja. Perubahan di luar jatah revisi dikenakan biaya kecil.</p></details>
-  </div>
-</section>
-
-<div class="final">
-  <h2>Siap tampil online?</h2>
-  <p>Kirim satu pesan, kami balas dalam jam kerja.</p>
-  <a class="btn" href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20pesan%20website%20instan" target="_blank" rel="noopener">Pesan lewat WhatsApp</a>
+<section><div class="wrap">
+<h2>Mengapa membeli dari kami</h2>
+<p class="lead">Pembeli kopra biasanya menolak lot karena kadar air tinggi atau jamur. Karena itu kami mengontrol tiga hal ini.</p>
+<div class="grid">
+<div><h3>Sumber jelas</h3><p>Kopra dibeli dari kelompok tani dan pengepul yang kami kenal. Setiap lot dicatat asal daerah dan tanggal panennya.</p></div>
+<div><h3>Diuji sebelum muat</h3><p>Kadar air diukur di gudang, sampel dikirim ke lab. Lot di luar spesifikasi tidak kami muat.</p></div>
+<div><h3>Dokumen lengkap</h3><p>Kami mengurus packing list, invoice, dan dokumen ekspor lain yang diminta pembeli.</p></div>
 </div>
-<footer>© 2026 WebInstan. Makassar, Sulawesi Selatan.</footer>
+</div></section>
+
+<section id="proses"><div class="wrap">
+<h2>Dari kebun sampai kapal</h2>
+<p class="lead">Urutan kerja untuk setiap pengiriman.</p>
+<ol>
+<li><b>Pembelian</b>Beli dari petani dan pengepul</li>
+<li><b>Sortir</b>Pisahkan kopra berjamur dan lembap</li>
+<li><b>Uji mutu</b>Kadar air, FFA, sampel lab</li>
+<li><b>Pengemasan</b>Karung bersih, ditumpuk di kontainer</li>
+<li><b>Pengapalan</b>Dokumen ekspor, muat di Makassar</li>
+</ol>
+</div></section>
+
+<section id="syarat"><div class="wrap terms">
+<div>
+<h2>Syarat pengiriman</h2>
+<p class="lead">Poin yang paling sering ditanyakan pembeli. Isi dengan angka usaha Anda yang sebenarnya.</p>
 </div>
+<table>
+<tr><th>Pesanan minimum</th><td>1 kontainer 20 kaki</td></tr>
+<tr><th>Muatan per kontainer</th><td>± 14 ton (ganti sesuai kenyataan)</td></tr>
+<tr><th>Syarat harga</th><td>FOB / CFR Makassar</td></tr>
+<tr><th>Pembayaran</th><td>L/C atau T/T</td></tr>
+<tr><th>Waktu kirim</th><td>2–4 minggu sejak kontrak</td></tr>
+</table>
+</div></section>
+
+<section class="contact" id="kontak"><div class="wrap terms">
+<div>
+<h2>Minta penawaran</h2>
+<p class="lead">Isi kebutuhan Anda. Tombol di samping akan membuka WhatsApp dengan pesan yang sudah terisi.</p>
+</div>
+<div>
+<label for="n">Nama / perusahaan</label><input id="n" autocomplete="organization">
+<label for="q">Volume (ton)</label><input id="q" inputmode="numeric" placeholder="mis. 14">
+<label for="d">Negara tujuan</label><input id="d">
+<label for="m">Catatan</label><textarea id="m" rows="3"></textarea>
+<p><button class="btn" id="go" type="button">Kirim lewat WhatsApp</button></p>
+<p class="note">Nomor tujuan diatur di bagian skrip halaman (variabel NOMOR).</p>
+</div>
+</div></section>
+
+<footer><div class="wrap">© 2026 Kopra Timur Nusantara, Makassar, Sulawesi Selatan. Nama usaha, angka, dan kontak di halaman ini adalah contoh.</div></footer>
 
 <script>
-(function(){
-var T=[
- {c:"#C2410C",bg:"#FFF3E6",t:"Pesan antar, jam buka, dan menu lengkap.",b:"Pesan via WhatsApp"},
- {c:"#0F766E",bg:"#E6F7F4",t:"Layanan profesional, jadwal dan tarif jelas.",b:"Konsultasi sekarang"},
- {c:"#2A3BFF",bg:"#EAEDFF",t:"Katalog produk dan cara order yang mudah.",b:"Lihat katalog"},
- {c:"#15803D",bg:"#E9F8EE",t:"Profil, kegiatan, dan informasi pendaftaran.",b:"Hubungi sekolah"}
-];
-var i=document.getElementById("nama"),site=document.getElementById("site"),
-pn=document.getElementById("pn"),pt=document.getElementById("pt"),pb=document.getElementById("pb"),url=document.getElementById("url"),
-chips=document.querySelectorAll(".chip"),cur=0;
-function slug(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,"").slice(0,24)||"usahaanda"}
-function render(){
- var v=i.value.trim(),t=T[cur];
- pn.textContent=v||"Nama Usaha Anda";
- pt.textContent=t.t;pb.textContent=t.b;
- site.style.background=t.bg;pb.style.background=t.c;
- url.textContent=slug(v)+".webinstan.id";
-}
-i.addEventListener("input",render);
-chips.forEach(function(c){c.addEventListener("click",function(){
- chips.forEach(function(x){x.setAttribute("aria-pressed","false")});
- c.setAttribute("aria-pressed","true");cur=+c.dataset.t;render();
-})});
-render();
-})();
+var NOMOR="6281234567890";
+document.getElementById("go").addEventListener("click",function(){
+var v=function(i){return document.getElementById(i).value.trim()};
+var t="Halo, saya ingin meminta penawaran kopra.\nNama/perusahaan: "+v("n")+"\nVolume: "+v("q")+" ton\nTujuan: "+v("d")+"\nCatatan: "+v("m");
+window.open("https://wa.me/"+NOMOR+"?text="+encodeURIComponent(t),"_blank","noopener");
+});
 </script>
 </body>
 </html>
